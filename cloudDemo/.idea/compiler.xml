@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="admin-server" />
+        <module name="cloudDemo" />
+        <module name="config-server" />
+        <module name="eureka" />
+        <module name="eureka-client" />
+        <module name="eureka-client2" />
+        <module name="eureka-client3" />
+        <module name="eureka-client4" />
+        <module name="eureka-client5" />
+        <module name="ribbon" />
+        <module name="ribbon-client" />
+        <module name="ribbon-consumer" />
+        <module name="zuul-client" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="admin-server" target="1.8" />
+      <module name="cloudDemo" target="1.5" />
+      <module name="config-server" target="1.8" />
+      <module name="eureka" target="1.8" />
+      <module name="eureka-client" target="1.8" />
+      <module name="eureka-client2" target="1.8" />
+      <module name="eureka-client3" target="1.8" />
+      <module name="eureka-client4" target="1.8" />
+      <module name="eureka-client5" target="1.8" />
+      <module name="ribbon" target="1.8" />
+      <module name="ribbon-client" target="1.8" />
+      <module name="ribbon-consumer" target="1.8" />
+      <module name="ribbon2" target="1.8" />
+      <module name="zuul-client" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

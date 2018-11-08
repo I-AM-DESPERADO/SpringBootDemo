@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "spring.boot.admin.route.endpoints",
+      "type": "java.lang.String",
+      "description": "Description for spring.boot.admin.route.endpoints."
+    },
+    {
+      "name": "eureka.client.registry-fetch-interval-seconds",
+      "type": "java.lang.String",
+      "description": "Description for eureka.client.registry-fetch-interval-seconds."
+    }
+  ] }

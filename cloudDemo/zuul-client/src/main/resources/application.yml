@@ -1,0 +1,24 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8801/eureka/
+
+hiapi-v1:
+  ribbon:
+    listOfServers: http://localhost:8767/hi,http://localhost:8766/hi,http://localhost:8762/hi,http://localhost:8763/hi,http://localhost:8765/hi
+
+ribbon:
+  eureka:
+    enabled: false
+
+server:
+  port: 5000
+spring:
+  application:
+    name: service-zuul
+
+zuul:
+  routes:
+    hello:
+      path: /hiapi/**
+      serviceId: hiapi-v1

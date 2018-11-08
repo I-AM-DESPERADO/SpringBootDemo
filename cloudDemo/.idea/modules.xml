@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/admin-server/admin-server.iml" filepath="$PROJECT_DIR$/admin-server/admin-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloudDemo.iml" filepath="$PROJECT_DIR$/cloudDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/config-server/config-server.iml" filepath="$PROJECT_DIR$/config-server/config-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka/eureka.iml" filepath="$PROJECT_DIR$/eureka/eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-client/eureka-client.iml" filepath="$PROJECT_DIR$/eureka-client/eureka-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-client2/eureka-client2.iml" filepath="$PROJECT_DIR$/eureka-client2/eureka-client2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-client3/eureka-client3.iml" filepath="$PROJECT_DIR$/eureka-client3/eureka-client3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-client4/eureka-client4.iml" filepath="$PROJECT_DIR$/eureka-client4/eureka-client4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-client5/eureka-client5.iml" filepath="$PROJECT_DIR$/eureka-client5/eureka-client5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ribbon/ribbon.iml" filepath="$PROJECT_DIR$/ribbon/ribbon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ribbon-client/ribbon-client.iml" filepath="$PROJECT_DIR$/ribbon-client/ribbon-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ribbon-consumer/ribbon-consumer.iml" filepath="$PROJECT_DIR$/ribbon-consumer/ribbon-consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zuul-client/zuul-client.iml" filepath="$PROJECT_DIR$/zuul-client/zuul-client.iml" />
+    </modules>
+  </component>
+</project>

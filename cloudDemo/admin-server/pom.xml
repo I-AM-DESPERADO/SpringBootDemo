@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.cloud.admin</groupId>
+	<artifactId>admin-server</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>admin-server</name>
+	<description>Demo project for Spring Boot</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.0.RELEASE</version>
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<spring-boot-admin.version>2.1.0-SNAPSHOT</spring-boot-admin.version>
+		<docker.image.prefix>springboot</docker.image.prefix>
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>de.codecentric</groupId>
+			<artifactId>spring-boot-admin-starter-server</artifactId>
+			<version>2.0.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.cloud</groupId>-->
+			<!--<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
+			<!--<optional>true</optional>-->
+			<!--<version>2.0.1.RELEASE</version>-->
+			<!--<exclusions>-->
+				<!--<exclusion>-->
+					<!--<groupId>org.springframework.boot</groupId>-->
+					<!--<artifactId>spring-boot-starter-web</artifactId>-->
+				<!--</exclusion>-->
+			<!--</exclusions>-->
+		<!--</dependency>-->
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.boot</groupId>-->
+			<!--<artifactId>spring-boot-starter-actuator</artifactId>-->
+			<!--<version>2.1.0.RELEASE</version>-->
+		<!--</dependency>-->
+
+		<!-- 在管理界面中与 JMX-beans 进行交互所需要被依赖的 JAR -->
+		<dependency>
+			<groupId>org.jolokia</groupId>
+			<artifactId>jolokia-core</artifactId>
+		</dependency>
+
+
+
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.cloud</groupId>-->
+			<!--<artifactId>spring-cloud-commons</artifactId>-->
+			<!--<version>2.0.2.RELEASE</version>-->
+		<!--</dependency>-->
+
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-dependencies</artifactId>
+				<version>${spring-boot-admin.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<!--<executions>-->
+					<!--<execution>-->
+						<!--<goals>-->
+							<!--<goal>repackage</goal>-->
+							<!--<goal>build-info</goal>-->
+						<!--</goals>-->
+					<!--</execution>-->
+				<!--</executions>-->
+				<configuration>
+					<mainClass>com.cloud.admin.AdminServerApplication</mainClass>
+					<!--<addResources>false</addResources>-->
+				</configuration>
+			</plugin>
+
+			<!-- tag::plugin[] -->
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>1.0.0</version>
+				<configuration>
+					<imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+					<!--<dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>-->
+					<!--<baseImage>java</baseImage>-->
+					<!--<entryPoint>["eureka","-jar","/${project.build.finalName}.jar}"]</entryPoint> -->
+					<dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
+					<dockerHost>http://59.68.29.51:2375</dockerHost>
+					<resources>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>${project.build.finalName}.jar</include>
+						</resource>
+					</resources>
+				</configuration>
+			</plugin>
+			<!-- end::plugin[] -->
+
+		</plugins>
+	</build>
+
+	<!--<repositories>-->
+		<!--<repository>-->
+			<!--<id>sonatype-snapshots</id>-->
+			<!--<name>Sonatype Snapshots</name>-->
+			<!--<url>https://oss.sonatype.org/content/repositories/snapshots/</url>-->
+			<!--<snapshots>-->
+				<!--<enabled>true</enabled>-->
+			<!--</snapshots>-->
+		<!--</repository>-->
+
+		<!--<repository>-->
+			<!--<id>spring-milestones</id>-->
+			<!--<name>Spring Milestones</name>-->
+			<!--<url>https://repo.spring.io/libs-milestone</url>-->
+			<!--<snapshots>-->
+				<!--<enabled>false</enabled>-->
+			<!--</snapshots>-->
+		<!--</repository>-->
+
+			<!--<repository>-->
+			<!--<id> sonatype-nexus-snapshots </id >-->
+			<!--<name> Sonatype Nexus Snapshots </name>-->
+			<!--<url> https://oss.sonatype.org/content/repositories/snapshots/ </url>-->
+			<!--<snapshots>-->
+				<!--<enabled> true </enabled>-->
+			<!--</snapshots >-->
+			<!--<releases>-->
+				<!--<enabled> false </enabled>-->
+			<!--</releases>-->
+		<!--</repository>-->
+
+		<!--<repository>-->
+			<!--<id>alimaven</id>-->
+			<!--<name>aliyun maven</name>-->
+			<!--<url>http://maven.aliyun.com/nexus/content/groups/public/</url>-->
+			<!--<layout>default</layout>-->
+			<!--<snapshots>-->
+				<!--<enabled>false</enabled>-->
+			<!--</snapshots>-->
+		<!--</repository>-->
+	<!--</repositories>-->
+
+
+</project>
